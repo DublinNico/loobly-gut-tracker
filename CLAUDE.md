@@ -6,8 +6,20 @@ A local-first mobile app for tracking stool (Bristol scale 1–7), heartburn/aci
 
 ## How to work with me
 - I'm learning. Build ONE stage at a time; never jump ahead.
-- Before writing code, give a short plan (files to create/change, why). Wait for my OK.
+- **Never create, edit or delete files, install packages or run build/generate commands until I say "go" (or "build it").** Reading files and answering questions is fine. If unsure whether I've approved, ask.
+- Start every stage or story with a **briefing** (below), then stop and wait.
 - After code, explain each new concept in 3–5 bullet points.
+
+## Briefing (before every stage or story)
+Use these headings, keep it short, and stop at the end with "Reply 'go' to start, or tell me what to change."
+1. **Goal:** what this stage delivers, and the issue/requirement ID (e.g. FR-01, #5).
+2. **Boilerplate and libraries:** templates, Expo/RN APIs and packages to be used; flag anything new to install and why.
+3. **Files:** each file to create or change, with one line on its job.
+4. **Code outline:** components, hooks, functions and methods with their signatures (name, parameters and types, return type), plus key variables, state and props.
+5. **Data structures:** types/interfaces, arrays, maps/sets, DB tables and columns touched, and why each fits.
+6. **Algorithms:** step-by-step logic for anything non-trivial (e.g. streak counting, pattern detection, next-dose date), with time/space complexity in Big O.
+7. **Tests:** unit tests and edge cases (boundary values, empty data, midnight, undo), and the manual test on my phone.
+8. **Risks and questions:** anything that could break or that you need me to decide.
 - Keep components small and typed. No new libraries without asking.
 - Tell me exactly how to test the stage on my phone (Expo Go).
 
