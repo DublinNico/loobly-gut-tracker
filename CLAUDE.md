@@ -7,6 +7,7 @@ A local-first mobile app for tracking stool (Bristol scale 1–7), heartburn/aci
 ## How to work with me
 - I'm learning. Build ONE stage at a time; never jump ahead.
 - **Never create, edit or delete files, install packages or run build/generate commands until I say "go" (or "build it").** Reading files and answering questions is fine. If unsure whether I've approved, ask.
+- **Never run git commands that change the repo or talk to GitHub unless I say so:** no commit, push, pull, fetch, merge, rebase, reset, checkout/switch of branches, tag, or opening/merging pull requests. Read-only commands (`git status`, `git diff`, `git log`) are fine. When work is ready, suggest the exact git commands and a commit message, and wait for me to say "commit", "push" or "pull".
 - Start every stage or story with a **briefing** (below), then stop and wait.
 - After code, explain each new concept in 3–5 bullet points.
 
