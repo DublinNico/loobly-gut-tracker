@@ -29,6 +29,7 @@ Use these headings, keep it short, and stop at the end with "Reply 'go' to start
 - expo-sqlite — schema in `db/schema.sql`
 - @expo-google-fonts/nunito
 - Charts later: react-native-gifted-charts (ask first)
+- Sound later: expo-audio (ask first; not expo-av) + expo-haptics
 - Tests: Jest (jest-expo) for pure logic
 
 ## Folder layout
@@ -56,6 +57,8 @@ Use these headings, keep it short, and stop at the end with "Reply 'go' to start
 - Reminders: user-controlled per type (medicines, stool, meals, heartburn, check-in, water), each with on/off, frequency and time; quiet hours 10pm–7am apply to everything except medicines. Ask for notification permission only when the user first turns a reminder on.
 - Onboarding: welcome + 9 one-question-per-screen steps (age, about you, habits, gut baseline, symptoms, diet, health, goal, reminders + privacy). Every step skippable; answers saved to `user_profile` and editable in Settings. App is 16+: "Under 16" blocks continuing (GDPR digital age of consent in Ireland). Use answers to personalise: hide irrelevant food tags, order Home buttons and goals by main goal, schedule the reminder, set AI opt-in.
 - Bristol 1–2 = constipated, 3–4 = healthy, 5 = soft, 6–7 = diarrhoea.
+- "Tried, nothing passed": a button on Log stool that saves a stool entry with `passed = 0` and no Bristol type (straining and pain can still be ticked). It counts as a log for streak, XP and the daily goal, and as a constipation sign in Insights, but it is NOT a bowel movement: exclude it from stool frequency, Bristol averages and food-pattern stats. Insights shows "X days since your last poo" (passed = 1 only) as information; no GP card for this.
+- Sounds: light, short (≤ ~400ms), soft (≤ ~50% volume, no harsh highs), bundled with the app. **Off by default** (setting `sounds_enabled`, offered on the onboarding privacy/reminders step and in Settings); haptics have their own toggle and stay on. Respect silent mode and mix with the user's music (never interrupt it). All playback goes through one `useSound()` hook in `lib/sound.ts` that preloads every sound once; nothing else touches audio. Every sound is paired with a haptic. Map: chip/card tap = soft tok (or haptic only); log saved = two-note bloop; Saved screen = Gus squeak + confetti pop; + Water = glug; daily goal done = 3-note chime; streak milestone = small fanfare; badge = sparkle; undo = soft reverse whoop; medicine done = calm single bell; "nothing passed" = none or neutral tap. **Never** play sounds on red-flag/GP cards, the chest-pain warning, errors, app open or tab changes. Record each sound's source and licence in `docs/sound-credits.md`.
 - Red flags (blood, black stool, diarrhoea 3+ days, trouble swallowing, vomiting with reflux) → show a gentle "see your GP" card. Never diagnose.
 - The heartburn screen always shows: "Chest pain with breathlessness, sweating, or pain spreading to your arm or jaw isn't heartburn. Call 112 or 999."
 - Heartburn severity 1–5: Mild, Annoying, Uncomfortable, Bad, Severe. A "No heartburn" button saves severity 0 so symptom-free days count in insights (exclude severity 0 when counting episodes). Reflux triggers to tag: spicy, fried/fatty, alcohol, caffeine, chocolate, citrus/tomato, fizzy drinks, mint, large meals, lying down within 3h of eating.
