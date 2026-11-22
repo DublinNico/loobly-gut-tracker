@@ -10,6 +10,7 @@ How to release: see the Releases section in [CONTRIBUTING](CONTRIBUTING.md).
 - Project docs: README, CONTRIBUTING, Definition of Ready and Done, architecture, ADRs, testing guide
 - Issue templates (user story, bug) and pull request template
 - Product backlog, sprint milestones and project board
+- Design mockup screenshots in the README
 
 <!--
 Template for each release (newest at the top):
